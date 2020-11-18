@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+  
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="./images/logo.png" ></a>
+        <div class="toggle"><img src="./images/toggle.png"></div>
+    </header>
+    <!--banner-->
+    <div class="banner">
+        <div class="content">
+            <h2>Put on a<span> Happy </span>face</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+                 nisi ut aliquip ex ea commodo consequat.
+            </p>
+    <!--links-->
+            <a href="#" class="play" onclick="toggle();"><img src="./images/play.png" >Watch Trailer</a>
+            <div class="slide"></div>
+            <ul class="sci">
+                <li><a href="#"><img src="./images/facebook.png"></a></li>
+                <li><a href="#"><img src="./images/twitter.png"></a></li>
+                <li><a href="#"><img src="./images/instagram.png"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="trailer">
+       
+        <iframe id="video" src="https://www.youtube.com/embed/xRc3WviXk2M?enablejsapi=1" width="560" height="315" frameborder="0" 
+            allowfullscreen="true" ></iframe>
+       
+        <img src="./images/close.png" class="close" onclick="toggle('hide');">
+    </div>
+
+
+
+
+<!--javascript-->
+
+
+    <script type="text/javascript">
+
+        // pause and play video function
+       
+    function toggle(state){
+        let trailer = document.querySelector('.trailer');
+         trailer.classList.toggle('active');
+         let iframe = document.getElementsByTagName('iframe')[0].contentWindow;
+         trailer.style.display = state == 'hide' ? 'none' : '';
+    func = state == 'hide' ? 'pauseVideo' : 'playVideo';
+    iframe.postMessage('{"event":"command","func":"' + func + '","args":""}', '*');
+    }
+
+
+
+
+
+
+       
+   
+
+
+    </script>
+</body>
+</html>   
+        
+    
